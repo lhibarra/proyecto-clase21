@@ -1,0 +1,27 @@
+"""project URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/4.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from SocialTravel.views import index, mostra_otro_template, mostrar_pos, agregar_post
+
+urlpatterns = [
+    path('', index, name= "index"),
+    path('admin/', admin.site.urls),
+    #path('mis-post/', mostra_otro_template, name="mis-post"), 
+    path('mis-post/', mostrar_pos, name="mis-post"), #reutilizo la vista llamo a la otra funcion
+    path('mis-post/agregar', agregar_post, name="agregar-post"),
+    
+]
