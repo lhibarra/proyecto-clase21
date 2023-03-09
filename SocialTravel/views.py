@@ -25,3 +25,11 @@ def agregar_post(request):
         "posts": Post.objects.all(),
     }
     return render (request, "SocialTravel/admin_post.html", contex)
+
+def buscar_post(request):
+    criterio = request.GET.get("criterio")
+    contex = {
+        "posts": Post.objects.filter(carousel_caption_title__icontains = criterio).all(),  
+        
+    }
+    return render(request, "SocialTravel/admin_post.html", contex)

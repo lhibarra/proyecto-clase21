@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from SocialTravel.views import index, mostra_otro_template, mostrar_pos, agregar_post
+from SocialTravel.views import index, mostra_otro_template, mostrar_pos, agregar_post, buscar_post
 
 urlpatterns = [
     path('', index, name= "index"),
@@ -23,5 +23,6 @@ urlpatterns = [
     #path('mis-post/', mostra_otro_template, name="mis-post"), 
     path('mis-post/', mostrar_pos, name="mis-post"), #reutilizo la vista llamo a la otra funcion
     path('mis-post/agregar', agregar_post, name="agregar-post"),
+    path('mis-post/buscar', buscar_post, name="buscar-post"),
     
 ]
